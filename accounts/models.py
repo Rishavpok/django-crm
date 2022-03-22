@@ -1,8 +1,5 @@
-import email
-from unicodedata import category
 from django.db import models
 
-from accounts.views import customer
 
 # Create your models here.
 
@@ -53,3 +50,6 @@ class Order(models.Model):
     date_created = models.DateTimeField(auto_now_add=True , null=True)
     status = models.CharField(max_length=200, null=True, choices=STATUS)
     
+
+    def __str__(self):
+        return self.product.name
